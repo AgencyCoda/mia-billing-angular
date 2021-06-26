@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-mia-choice-billing',
+  selector: 'mia-choice-billing',
   templateUrl: './mia-choice-billing.component.html',
   styleUrls: ['./mia-choice-billing.component.css']
 })

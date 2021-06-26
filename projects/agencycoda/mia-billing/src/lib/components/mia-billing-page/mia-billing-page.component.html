@@ -1,9 +1,11 @@
 <div class="mia-billing-layout">
     <mia-header-billing *ngIf="config.hasHeader" [title]="config.title" [logo]="config.logoImage"></mia-header-billing>
-    <mia-steps-billing></mia-steps-billing>
+    <mia-steps-billing #stepsComp [currentStep]="currentStep"></mia-steps-billing>
     <mia-resume-billing [buyItem]="config.buyItem"></mia-resume-billing>
 
     <div class="container">
+        <mia-info-billing *ngIf="currentStep == 0" (continue)="onNextToStepOne()"></mia-info-billing>
+        <mia-choice-billing *ngIf="currentStep == 1"></mia-choice-billing>
         <!--<app-step-info *ngIf="currentStep == 0" (continue)="onNextStep()"></app-step-info>
         <div *ngIf="currentStep == 1" style="color: white"><p>loading...</p></div>
         <div *ngIf="currentStep == 2" style="color: white">

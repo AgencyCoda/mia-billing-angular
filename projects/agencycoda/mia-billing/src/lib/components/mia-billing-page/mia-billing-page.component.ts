@@ -1,11 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MiaBuyItem } from '../../entities/mia_buy_item';
+import { MiaStepsBillingComponent } from '../mia-steps-billing/mia-steps-billing.component';
 
 export class MiaBillingPageConfig {
   title = '';
   logoImage = '';
   hasHeader = true;
-  buyItem = new MiaBuyItem()
+  buyItem = new MiaBuyItem();
+  startStep = 0;
 }
 
 @Component({
@@ -15,11 +17,20 @@ export class MiaBillingPageConfig {
 })
 export class MiaBillingPageComponent implements OnInit {
 
+  @ViewChild('stepsComp') stepsComp!: MiaStepsBillingComponent;
+
   @Input() config = new MiaBillingPageConfig();
+
+  currentStep = 0;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.currentStep = this.config.startStep;
   }
 
+  onNextToStepOne() {
+    this.currentStep = 1;
+    this.stepsComp.next();
+  }
 }

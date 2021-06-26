@@ -1,5 +1,6 @@
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'mia-steps-billing',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiaStepsBillingComponent implements OnInit {
 
-  currentStep = 0;
+  @ViewChild('stepper') stepper!: MatStepper;
+
+  @Input() currentStep = 0;
 
   constructor() { }
 
@@ -17,5 +20,12 @@ export class MiaStepsBillingComponent implements OnInit {
 
   onChangeStep(event: StepperSelectionEvent) {
     console.log(event);
+    if(event.selectedIndex > event.previouslySelectedIndex){
+      //this.stepper.previous();
+    }
+  }
+
+  next() {
+    this.stepper.next();
   }
 }
