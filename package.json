@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "build2": "ng build --prod && cd dist/agencycoda/mia-billing/ && npm publish",
     "test": "ng test"
   },
   "private": true,

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MiaBillingComponent } from './mia-billing.component';
+import { MiaBillingPageComponent } from './mia-billing-page.component';
 
-describe('MiaBillingComponent', () => {
-  let component: MiaBillingComponent;
-  let fixture: ComponentFixture<MiaBillingComponent>;
+describe('MiaBillingPageComponent', () => {
+  let component: MiaBillingPageComponent;
+  let fixture: ComponentFixture<MiaBillingPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MiaBillingComponent ]
+      declarations: [ MiaBillingPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MiaBillingComponent);
+    fixture = TestBed.createComponent(MiaBillingPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
