@@ -1,1 +1,4 @@
-<p>mia-header-billing works!</p>
+<div class="toolbar">
+    <img *ngIf="logo != ''" src="/assets/img/logo-white.png" alt="{{ title }}">
+    <h1 *ngIf="logo == ''">{{ title }}</h1>
+</div>

@@ -1,4 +1,11 @@
+// Angular Core
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+// Angular Material
+import { MatStepperModule } from '@angular/material/stepper';
+
+// Components
 import { MiaBillingPageComponent } from './components/mia-billing-page/mia-billing-page.component';
 import { MiaHeaderBillingComponent } from './components/mia-header-billing/mia-header-billing.component';
 import { MiaStepsBillingComponent } from './components/mia-steps-billing/mia-steps-billing.component';
@@ -7,6 +14,7 @@ import { MiaChoiceBillingComponent } from './components/mia-choice-billing/mia-c
 import { MiaInfoBillingComponent } from './components/mia-info-billing/mia-info-billing.component';
 import { MiaSuccessBillingComponent } from './components/mia-success-billing/mia-success-billing.component';
 import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia-problem-billing.component';
+
 
 
 
@@ -22,6 +30,11 @@ import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia
     MiaProblemBillingComponent
   ],
   imports: [
+    // Angular Core
+    CommonModule,
+
+    // Angular Material
+    MatStepperModule
   ],
   exports: [
     MiaBillingPageComponent

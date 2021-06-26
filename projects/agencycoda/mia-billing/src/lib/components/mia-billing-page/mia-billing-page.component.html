@@ -1,1 +1,14 @@
-<p>mia-billing-page works!</p>
+<div class="mia-billing-layout">
+    <mia-header-billing *ngIf="config.hasHeader" [title]="config.title" [logo]="config.logoImage"></mia-header-billing>
+    <mia-steps-billing></mia-steps-billing>
+    <mia-resume-billing [buyItem]="config.buyItem"></mia-resume-billing>
+
+    <div class="container">
+        <!--<app-step-info *ngIf="currentStep == 0" (continue)="onNextStep()"></app-step-info>
+        <div *ngIf="currentStep == 1" style="color: white"><p>loading...</p></div>
+        <div *ngIf="currentStep == 2" style="color: white">
+            <div *ngIf="currentTransaction.status == 1">Your payment has been approved.</div>
+            <div *ngIf="currentTransaction.status == 2">We were unable to process your payment, please try again.</div>
+        </div>-->
+    </div>
+</div>
