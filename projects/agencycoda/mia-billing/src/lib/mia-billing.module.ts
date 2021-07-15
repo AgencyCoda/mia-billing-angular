@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 // Angular Material
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 // Components
 import { MiaBillingPageComponent } from './components/mia-billing-page/mia-billing-page.component';
@@ -34,7 +35,8 @@ import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia
     CommonModule,
 
     // Angular Material
-    MatStepperModule
+    MatStepperModule,
+    MatExpansionModule
   ],
   exports: [
     MiaBillingPageComponent

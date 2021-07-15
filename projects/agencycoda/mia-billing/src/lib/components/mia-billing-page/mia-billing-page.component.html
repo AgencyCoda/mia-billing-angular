@@ -5,7 +5,7 @@
 
     <div class="container">
         <mia-info-billing *ngIf="currentStep == 0" (continue)="onNextToStepOne()"></mia-info-billing>
-        <mia-choice-billing *ngIf="currentStep == 1"></mia-choice-billing>
+        <mia-choice-billing *ngIf="currentStep == 1" [config]="config"></mia-choice-billing>
         <!--<app-step-info *ngIf="currentStep == 0" (continue)="onNextStep()"></app-step-info>
         <div *ngIf="currentStep == 1" style="color: white"><p>loading...</p></div>
         <div *ngIf="currentStep == 2" style="color: white">

@@ -1,1 +1,20 @@
-<p>mia-choice-billing works!</p>
+<div class="box intro-component-animation">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let method of config.methods" hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title >
+                    <div class="radio-button"></div>
+                    {{ method.title }}
+                    <img *ngIf="method.image != ''" class="item-right" [src]="method.image" style="max-height: 80px;">
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <!--<app-pay-with-paypal></app-pay-with-paypal>-->
+
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+
+<div class="footer body-2" >
+    <!--<mat-icon>lock</mat-icon> &nbsp;--> 100% secure payment, we protect your data.
+</div>

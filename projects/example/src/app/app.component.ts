@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MiaMethod } from 'projects/agencycoda/mia-billing/src/lib/entities/mia_method';
 import { MiaBillingPageConfig } from 'projects/agencycoda/mia-billing/src/public-api';
 
 @Component({
@@ -23,5 +24,10 @@ export class AppComponent implements OnInit {
     this.config.buyItem.title = 'Plan Premium';
     this.config.buyItem.caption = 'Aumenta su capacidad de almacenamiento';
     this.config.buyItem.amount = 299;
+
+    this.config.methods = [
+      MiaMethod.PAYPAL_METHOD,
+      { id: 'other', title: 'Pay with Example', image: '' }
+    ];
   }
 }
