@@ -1,5 +1,14 @@
 <button mat-button (click)="onClickBack()">Bacl to your details</button>
 
+<div class="mia-billing-cycle">
+    <h2>Ciclo de facturación</h2>
+    <p>Selecciona la frecuencia con la que quieres que te facturemos. Puedes cancelar en cualquier momento.</p>
+    <mat-radio-group class="example-radio-group" [formControl]="cycleInput">
+        <mat-radio-button class="example-radio-button" [value]="0"> Mensual ({{ config.buyItem.amount | currency }} cada mes) </mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="1"> Anual ({{ getAmountYear() | currency }} x 12 meses) </mat-radio-button>
+    </mat-radio-group>
+</div>
+
 <div class="box intro-component-animation">
     <mat-accordion>
         <mat-expansion-panel *ngFor="let method of config.methods" hideToggle>
@@ -11,7 +20,7 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <!--<app-pay-with-paypal></app-pay-with-paypal>-->
+            <mia-paypal-method [config]="config"></mia-paypal-method>
 
         </mat-expansion-panel>
     </mat-accordion>

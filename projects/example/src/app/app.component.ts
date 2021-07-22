@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MiaBuyItem } from 'projects/agencycoda/mia-billing/src/lib/entities/mia_buy_item';
 import { MiaMethod } from 'projects/agencycoda/mia-billing/src/lib/entities/mia_method';
 import { MiaBillingPageConfig } from 'projects/agencycoda/mia-billing/src/public-api';
 
@@ -25,10 +26,18 @@ export class AppComponent implements OnInit {
     this.config.buyItem.title = 'Plan Premium';
     this.config.buyItem.caption = 'Aumenta su capacidad de almacenamiento';
     this.config.buyItem.amount = 299;
+    this.config.buyItem.type = MiaBuyItem.TYPE_MONTH_WITH_HAS_DISCOUNT_YEAR;
+    this.config.buyItem.percentDiscountYear = 20;
+    this.config.buyItem.details = [
+      'Todos los beneficios',
+      '15 cuentas',
+      '5 newsrooms',
+      '25 Users'
+    ];
+    this.config.buyItem.discounts = [{ title: 'Credito', discount: 10 }];
 
     this.config.methods = [
-      MiaMethod.PAYPAL_METHOD,
-      { id: 'other', title: 'Pay with Example', image: '' }
+      MiaMethod.PAYPAL_METHOD
     ];
   }
 }

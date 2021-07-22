@@ -22,6 +22,7 @@ export class MiaBillingPageComponent implements OnInit {
   @Input() config = new MiaBillingPageConfig();
 
   currentStep = 0;
+  typeMonthWithHasDiscountYear = MiaBuyItem.TYPE_MONTH_WITH_HAS_DISCOUNT_YEAR;
 
   transaction: any = {};
 
@@ -29,6 +30,22 @@ export class MiaBillingPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentStep = this.config.startStep;
+  }
+
+  getTotal(): number {
+    let total = this.getAmount();
+    for (const discount of this.config.buyItem.discounts) {
+      total -= discount.discount;
+    }
+    return total;
+  }
+
+  getAmount(): number {
+    if(this.config.buyItem.selectedCycle == 1){
+      return (this.config.buyItem.amount - (this.config.buyItem.amount * (this.config.buyItem.percentDiscountYear / 100))) * 12;
+    }
+
+    return this.config.buyItem.amount;
   }
 
   onReceivedInfo(info: any) {

@@ -15,7 +15,18 @@
         </div>
 
         <div class="mia-billing-lateral">
-
+            <h3>{{ config.buyItem.title }}</h3>
+            <p>{{ getAmount() | currency }} + taxes</p>
+            <h3>Detalles</h3>
+            <div *ngFor="let detail of config.buyItem.details">
+                <p>{{ detail }}</p>
+            </div>
+            <mat-divider></mat-divider>
+            <p>Subtotal: {{ getAmount() | currency }}</p>
+            <p *ngFor="let discount of config.buyItem.discounts">{{ discount.title }} -{{ discount.discount | currency }}</p>
+            <mat-divider></mat-divider>
+            <p>Total:</p>
+            <p>{{ getTotal() | currency }}</p>
         </div>
 
         

@@ -1,14 +1,20 @@
 // Angular Core
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatRadioModule } from '@angular/material/radio';
 
 // Mia Library
 import { MiaCoreModule } from '@agencycoda/mia-core';
 import { MiaFormModule } from '@agencycoda/mia-form';
+
+// External Libraries
+import { NgxPayPalModule } from '@agencycoda/ngx-paypal';
 
 // Components
 import { MiaBillingPageComponent } from './components/mia-billing-page/mia-billing-page.component';
@@ -19,6 +25,10 @@ import { MiaChoiceBillingComponent } from './components/mia-choice-billing/mia-c
 import { MiaInfoBillingComponent } from './components/mia-info-billing/mia-info-billing.component';
 import { MiaSuccessBillingComponent } from './components/mia-success-billing/mia-success-billing.component';
 import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia-problem-billing.component';
+import { MiaPaypalMethodComponent } from './methods/mia-paypal-method/mia-paypal-method.component';
+
+
+
 
 
 
@@ -33,11 +43,14 @@ import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia
     MiaChoiceBillingComponent,
     MiaInfoBillingComponent,
     MiaSuccessBillingComponent,
-    MiaProblemBillingComponent
+    MiaProblemBillingComponent,
+    MiaPaypalMethodComponent
   ],
   imports: [
     // Angular Core
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     // Mia Library
     MiaCoreModule,
@@ -46,9 +59,17 @@ import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia
     // Angular Material
     MatStepperModule,
     MatExpansionModule,
+    MatDividerModule,
+    MatRadioModule,
+
+    // External Libraries
+    NgxPayPalModule
   ],
   exports: [
-    MiaBillingPageComponent
+    MiaBillingPageComponent,
+
+    // Methods
+    MiaPaypalMethodComponent
   ]
 })
 export class MiaBillingModule { }

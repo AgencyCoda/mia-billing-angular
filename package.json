@@ -14,6 +14,7 @@
     "@agencycoda/mia-auth": "^11.0.32",
     "@agencycoda/mia-core": "^11.0.30",
     "@agencycoda/mia-form": "^11.0.49",
+    "@agencycoda/ngx-paypal": "^7.0.0",
     "@angular/animations": "~12.0.1",
     "@angular/cdk": "^12.1.0",
     "@angular/common": "~12.0.1",
