@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MiaBillingPageConfig } from '../mia-billing-page/mia-billing-page.component';
 
 @Component({
@@ -9,10 +9,14 @@ import { MiaBillingPageConfig } from '../mia-billing-page/mia-billing-page.compo
 export class MiaChoiceBillingComponent implements OnInit {
 
   @Input() config = new MiaBillingPageConfig();
+  @Output() back = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClickBack() {
+    this.back.emit();
+  }
 }

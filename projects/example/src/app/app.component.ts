@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   loadConfig() {
     this.config.title = 'Example Billing';
     this.config.hasHeader = true;
+    this.config.startStep = 0;
 
     this.config.buyItem.title = 'Plan Premium';
     this.config.buyItem.caption = 'Aumenta su capacidad de almacenamiento';

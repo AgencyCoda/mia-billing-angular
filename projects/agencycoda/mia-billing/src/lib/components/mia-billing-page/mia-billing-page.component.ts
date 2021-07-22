@@ -19,11 +19,11 @@ export class MiaBillingPageConfig {
 })
 export class MiaBillingPageComponent implements OnInit {
 
-  @ViewChild('stepsComp') stepsComp!: MiaStepsBillingComponent;
-
   @Input() config = new MiaBillingPageConfig();
 
   currentStep = 0;
+
+  transaction: any = {};
 
   constructor() { }
 
@@ -31,8 +31,12 @@ export class MiaBillingPageComponent implements OnInit {
     this.currentStep = this.config.startStep;
   }
 
-  onNextToStepOne() {
+  onReceivedInfo(info: any) {
+    console.log(info);
     this.currentStep = 1;
-    this.stepsComp.next();
+  }
+
+  onBackChoice() {
+    this.currentStep = 0;
   }
 }

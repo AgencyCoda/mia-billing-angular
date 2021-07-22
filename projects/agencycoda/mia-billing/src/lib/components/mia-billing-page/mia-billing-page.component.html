@@ -1,11 +1,25 @@
 <div class="mia-billing-layout">
-    <mia-header-billing *ngIf="config.hasHeader" [title]="config.title" [logo]="config.logoImage"></mia-header-billing>
-    <mia-steps-billing #stepsComp [currentStep]="currentStep"></mia-steps-billing>
-    <mia-resume-billing [buyItem]="config.buyItem"></mia-resume-billing>
+    <div *ngIf="config.logoImage && config.logoImage != ''" class="toolbar">
+        <img [src]="config.logoImage" [alt]="config.title" />
+    </div>
 
-    <div class="container">
-        <mia-info-billing *ngIf="currentStep == 0" (continue)="onNextToStepOne()"></mia-info-billing>
-        <mia-choice-billing *ngIf="currentStep == 1" [config]="config"></mia-choice-billing>
+    <!--<mia-header-billing *ngIf="config.hasHeader" [title]="config.title" [logo]="config.logoImage"></mia-header-billing>
+    <mia-steps-billing #stepsComp [currentStep]="currentStep"></mia-steps-billing>
+    <mia-resume-billing [buyItem]="config.buyItem"></mia-resume-billing>-->
+
+    <div class="mia-billing-container">
+
+        <div class="mia-billing-content">
+            <mia-info-billing *ngIf="currentStep == 0" [item]="transaction" (continue)="onReceivedInfo($event)"></mia-info-billing>
+            <mia-choice-billing *ngIf="currentStep == 1" (back)="onBackChoice()" [config]="config"></mia-choice-billing>
+        </div>
+
+        <div class="mia-billing-lateral">
+
+        </div>
+
+        
+        
         <!--<app-step-info *ngIf="currentStep == 0" (continue)="onNextStep()"></app-step-info>
         <div *ngIf="currentStep == 1" style="color: white"><p>loading...</p></div>
         <div *ngIf="currentStep == 2" style="color: white">
