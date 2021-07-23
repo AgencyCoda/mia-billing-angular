@@ -1,4 +1,4 @@
-<button mat-button (click)="onClickBack()">Bacl to your details</button>
+<!--<button mat-button (click)="onClickBack()">Back to your details</button>-->
 
 <div class="mia-billing-cycle">
     <h2>Ciclo de facturación</h2>
@@ -20,7 +20,7 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <mia-paypal-method [config]="config"></mia-paypal-method>
+            <mia-paypal-method [config]="config" (success)="onApproved()"></mia-paypal-method>
 
         </mat-expansion-panel>
     </mat-accordion>

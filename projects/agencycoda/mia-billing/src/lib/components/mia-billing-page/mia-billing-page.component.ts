@@ -1,16 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MiaBillingPageConfig } from '../../entities/mia_billing_page_config';
 import { MiaBuyItem } from '../../entities/mia_buy_item';
 import { MiaMethod } from '../../entities/mia_method';
-import { MiaStepsBillingComponent } from '../mia-steps-billing/mia-steps-billing.component';
-
-export class MiaBillingPageConfig {
-  title = '';
-  logoImage = '';
-  hasHeader = true;
-  buyItem = new MiaBuyItem();
-  startStep = 0;
-  methods = new Array<MiaMethod>();
-}
 
 @Component({
   selector: 'mia-billing-page',
@@ -46,6 +37,10 @@ export class MiaBillingPageComponent implements OnInit {
     }
 
     return this.config.buyItem.amount;
+  }
+
+  onSuccessPayment() {
+    this.currentStep = 2;
   }
 
   onReceivedInfo(info: any) {

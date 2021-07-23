@@ -21,8 +21,12 @@ export class AppComponent implements OnInit {
   loadConfig() {
     this.config.title = 'Example Billing';
     this.config.hasHeader = true;
-    this.config.startStep = 0;
+    this.config.startStep = 1;
+    this.config.paypalClientId = 'AaKquvyMZnuKc4QOtnBQI-JXmDDGeLsztBg-73NWDj89PhpZ0gcX85hE5F4iPCPZdfPs2YfdPCZnjI4s';
 
+    // Subscription
+    this.config.buyItem.externalId = 'P-0WJ449211D884135FMD4Y2QQ';
+    this.config.buyItem.externalIdYear = 'P-16A2456718670311NMD5L3PI';
     this.config.buyItem.title = 'Plan Premium';
     this.config.buyItem.caption = 'Aumenta su capacidad de almacenamiento';
     this.config.buyItem.amount = 299;

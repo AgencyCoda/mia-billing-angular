@@ -1,6 +1,7 @@
 // Angular Core
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
@@ -34,6 +35,7 @@ import { MiaPaypalMethodComponent } from './methods/mia-paypal-method/mia-paypal
 
 
 
+
 @NgModule({
   declarations: [
     MiaBillingPageComponent,
@@ -49,6 +51,7 @@ import { MiaPaypalMethodComponent } from './methods/mia-paypal-method/mia-paypal
   imports: [
     // Angular Core
     CommonModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
 

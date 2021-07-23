@@ -13,6 +13,8 @@ export class MiaBuyItem {
     details: Array<string> = [];
     discounts: Array<MiaBuyDiscount> = [];
     selectedCycle = 0;
+    externalId?: string;
+    externalIdYear?: string;
 }
 
 export class MiaBuyDiscount {
