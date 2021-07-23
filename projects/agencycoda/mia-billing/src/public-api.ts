@@ -3,7 +3,9 @@
  */
 
 /** ENTITIES */
-
+export * from './lib/entities/mia_billing_page_config';
+export * from './lib/entities/mia_buy_item';
+export * from './lib/entities/mia_method';
 
 /** COMPONENTS */
 export * from './lib/components/mia-billing-page/mia-billing-page.component';
