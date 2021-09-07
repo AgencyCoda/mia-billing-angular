@@ -67,6 +67,7 @@ export class MiaPaypalMethodComponent implements OnInit {
       onApprove: (data, actions) => {
         //this.loadingPayment = true;
           console.log('onApprove - transaction was approved, but not authorized', data, actions);
+          //alert('You have successfully created subscription ' + data.subscriptionID);
           this.success.emit();
           /*actions.order.get().then(details => {
               console.log('onApprove - you can get full order details inside onApprove: ', details);
