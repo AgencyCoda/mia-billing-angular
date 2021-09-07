@@ -1,0 +1,38 @@
+.mia-billing-layout{
+  background-color: #F6F8FC;
+  padding: 1em;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.mia-billing-container{
+  display: flex;
+  align-items: flex-start;
+  width: 1200px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.mia-billing-container .mia-billing-content{
+  margin-right: 2em;
+}
+
+.mia-billing-container .mia-billing-lateral{
+  width: 300px;
+  max-width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+@media only screen and (max-width: 599px) {
+  .mia-billing-container{
+    flex-direction: column;
+  }
+  .mia-billing-container .mia-billing-content{
+    order: 2;
+    margin-right: 0;
+    margin-top: 2em;
+  }
+}

@@ -1,0 +1,59 @@
+h3{
+  margin-bottom: 0.4em;
+}
+
+.mia-billing-cycle{
+  margin-bottom: 2em;
+  background-color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 1em 2em;
+}
+
+.mia-billing-cycle .mat-radio-group{
+}
+
+.mia-billing-cycle .mat-radio-group mat-radio-button{
+  width: 100%;
+  padding: 0.8em 1em;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mia-billing-cycle .mat-radio-group mat-radio-button:last-of-type{
+  border-bottom: none;
+}
+
+.mia-billing-cycle .mat-radio-group mat-radio-button span{
+  color: #27AE60;
+  margin-left: 1em;
+}
+
+.mia-billing-cycle .mat-radio-group mat-radio-button:hover{
+  background-color: whitesmoke;
+}
+
+.mia-billing-cycle .mat-radio-group .mat-radio-checked{
+  background-color: rgba(0, 0, 255, 0.08) !important;
+}
+
+
+.mia-billing-payment-method{
+  margin-bottom: 2em;
+  background-color: white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 1em 2em;
+}
+
+.mia-billing-payment-method mat-accordion mat-panel-title{
+  font-weight: 500;
+}
+.mia-billing-payment-method mat-accordion mat-panel-title img{
+  margin-left: auto;
+}
+
+.footer{
+  text-align: center;
+  margin-top: 2em;
+}

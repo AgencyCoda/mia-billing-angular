@@ -1,15 +1,17 @@
 <!--<button mat-button (click)="onClickBack()">Back to your details</button>-->
 
 <div class="mia-billing-cycle">
-    <h2>Ciclo de facturación</h2>
+    <h3><b>Ciclo de facturación</b></h3>
     <p>Selecciona la frecuencia con la que quieres que te facturemos. Puedes cancelar en cualquier momento.</p>
-    <mat-radio-group class="example-radio-group" [formControl]="cycleInput">
-        <mat-radio-button class="example-radio-button" [value]="0"> Mensual ({{ config.buyItem.amount | currency }} cada mes) </mat-radio-button>
-        <mat-radio-button class="example-radio-button" [value]="1"> Anual ({{ getAmountYear() | currency }} x 12 meses) </mat-radio-button>
+    <mat-radio-group color="primary" [formControl]="cycleInput">
+        <mat-radio-button [value]="0"> Mensual ({{ config.buyItem.amount | currency }} cada mes) </mat-radio-button>
+        <mat-radio-button [value]="1"> Anual ({{ getAmountYear() /12 | currency }} x 12 meses) <span>Ahorrá {{ (config.buyItem.amount * 12) - getAmountYear() | currency }}</span> </mat-radio-button>
     </mat-radio-group>
 </div>
 
-<div class="box intro-component-animation">
+<div class="mia-billing-payment-method">
+    <h3><b>Forma de pago</b></h3>
+    <p>Selecciona cómo te gustaría pagar.</p>
     <mat-accordion>
         <mat-expansion-panel *ngFor="let method of config.methods" hideToggle>
             <mat-expansion-panel-header>
@@ -24,8 +26,8 @@
 
         </mat-expansion-panel>
     </mat-accordion>
+    <div class="footer body-2" >
+        <!--<mat-icon>lock</mat-icon> &nbsp;--> 100% secure payment, we protect your data.
+    </div>
 </div>
 
-<div class="footer body-2" >
-    <!--<mat-icon>lock</mat-icon> &nbsp;--> 100% secure payment, we protect your data.
-</div>
