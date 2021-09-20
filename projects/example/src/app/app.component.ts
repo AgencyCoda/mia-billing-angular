@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
     this.config.hasHeader = true;
     this.config.startStep = 1;
     this.config.paypalClientId = 'AaKquvyMZnuKc4QOtnBQI-JXmDDGeLsztBg-73NWDj89PhpZ0gcX85hE5F4iPCPZdfPs2YfdPCZnjI4s';
+    this.config.isAllowCodeDiscount = true;
 
     // Subscription
     this.config.buyItem.externalId = 'P-0WJ449211D884135FMD4Y2QQ';

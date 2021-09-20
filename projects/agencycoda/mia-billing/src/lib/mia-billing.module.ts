@@ -9,6 +9,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 // Mia Library
 import { MiaCoreModule } from '@agencycoda/mia-core';
@@ -27,6 +28,7 @@ import { MiaInfoBillingComponent } from './components/mia-info-billing/mia-info-
 import { MiaSuccessBillingComponent } from './components/mia-success-billing/mia-success-billing.component';
 import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia-problem-billing.component';
 import { MiaPaypalMethodComponent } from './methods/mia-paypal-method/mia-paypal-method.component';
+
 
 
 
@@ -64,6 +66,7 @@ import { MiaPaypalMethodComponent } from './methods/mia-paypal-method/mia-paypal
     MatExpansionModule,
     MatDividerModule,
     MatRadioModule,
+    MatFormFieldModule,
 
     // External Libraries
     NgxPayPalModule

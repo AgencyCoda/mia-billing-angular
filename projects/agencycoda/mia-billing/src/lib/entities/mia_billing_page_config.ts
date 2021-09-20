@@ -9,4 +9,5 @@ export class MiaBillingPageConfig {
     startStep = 0;
     methods = new Array<MiaMethod>();
     paypalClientId?: string;
+    isAllowCodeDiscount?: boolean = false;
   }

@@ -26,6 +26,17 @@
             <p>Subtotal: {{ getAmount() | currency }}</p>
             <p *ngFor="let discount of config.buyItem.discounts">{{ discount.title }} -{{ discount.discount | currency }}</p>
             <mat-divider></mat-divider>
+
+            <div *ngIf="config.isAllowCodeDiscount" class="code_discount">
+                <mat-form-field>
+                    <mat-label>Aplicar descuento</mat-label>
+                    <input matInput type="email" [formControl]="codeDiscount" placeholder="Codigo de descuento" />
+                </mat-form-field>
+                <button mat-button (click)="onApplyCodeDiscount()">Aplicar</button>
+            </div>
+            <mat-divider *ngIf="config.isAllowCodeDiscount"></mat-divider>
+
+
             <p>Total:</p>
             <p>{{ getTotal() | currency }}</p>
         </div>

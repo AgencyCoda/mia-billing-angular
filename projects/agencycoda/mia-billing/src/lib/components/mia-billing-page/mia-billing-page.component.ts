@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MiaBillingPageConfig } from '../../entities/mia_billing_page_config';
 import { MiaBuyItem } from '../../entities/mia_buy_item';
 import { MiaMethod } from '../../entities/mia_method';
@@ -17,10 +18,16 @@ export class MiaBillingPageComponent implements OnInit {
 
   transaction: any = {};
 
+  codeDiscount = new FormControl();
+
   constructor() { }
 
   ngOnInit(): void {
     this.currentStep = this.config.startStep;
+  }
+
+  onApplyCodeDiscount() {
+
   }
 
   getTotal(): number {
