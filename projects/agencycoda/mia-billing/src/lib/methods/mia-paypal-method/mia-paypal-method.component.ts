@@ -62,7 +62,7 @@ export class MiaPaypalMethodComponent implements OnInit {
       vault: 'true',
       style: {
           label: 'paypal',
-          layout: 'horizontal'
+          layout: 'vertical'
       },
       onApprove: (data, actions) => {
         //this.loadingPayment = true;
