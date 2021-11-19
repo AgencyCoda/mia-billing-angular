@@ -9,7 +9,9 @@
     </mat-radio-group>
 </div>
 
-<div class="mia-billing-payment-method">
+<div class="mia-billing-cycle-processing" *ngIf="processing">Procesando...</div>
+
+<div *ngIf="!processing" class="mia-billing-payment-method">
     <h3><b>Forma de pago</b></h3>
     <p>Selecciona cómo te gustaría pagar.</p>
     <mat-accordion>

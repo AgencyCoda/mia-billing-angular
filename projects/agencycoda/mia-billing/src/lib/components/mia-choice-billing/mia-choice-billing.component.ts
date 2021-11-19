@@ -10,6 +10,7 @@ import { MiaBillingPageConfig } from '../../entities/mia_billing_page_config';
 export class MiaChoiceBillingComponent implements OnInit {
 
   @Input() config = new MiaBillingPageConfig();
+  @Input() processing = false;
   @Output() back = new EventEmitter();
   @Output() success = new EventEmitter();
 

@@ -11,7 +11,7 @@
 
         <div class="mia-billing-content">
             <mia-info-billing *ngIf="currentStep == 0" [item]="transaction" (continue)="onReceivedInfo($event)"></mia-info-billing>
-            <mia-choice-billing *ngIf="currentStep == 1" (back)="onBackChoice()" (success)="onSuccessPayment()" [config]="config"></mia-choice-billing>
+            <mia-choice-billing *ngIf="currentStep == 1" (back)="onBackChoice()" (success)="onSuccessPayment()" [config]="config" [processing]="processing"></mia-choice-billing>
             <mia-success-billing *ngIf="currentStep == 2"></mia-success-billing>
         </div>
 

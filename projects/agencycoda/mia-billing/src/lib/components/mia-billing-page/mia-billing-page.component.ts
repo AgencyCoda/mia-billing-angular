@@ -12,6 +12,7 @@ import { MiaMethod } from '../../entities/mia_method';
 export class MiaBillingPageComponent implements OnInit {
 
   @Input() config = new MiaBillingPageConfig();
+  @Input() processing = false;
   @Output() applyDiscount = new EventEmitter<string>();
 
   currentStep = 0;
@@ -28,6 +29,7 @@ export class MiaBillingPageComponent implements OnInit {
   }
 
   onApplyCodeDiscount() {
+    this.processing = true;
     this.applyDiscount.emit(this.codeDiscount.value);
   }
 
@@ -58,5 +60,9 @@ export class MiaBillingPageComponent implements OnInit {
 
   onBackChoice() {
     this.currentStep = 0;
+  }
+
+  stopProcessing() {
+    this.processing = false;
   }
 }
