@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MiaBillingPageConfig } from '../../entities/mia_billing_page_config';
 import { MiaBuyItem } from '../../entities/mia_buy_item';
@@ -12,6 +12,7 @@ import { MiaMethod } from '../../entities/mia_method';
 export class MiaBillingPageComponent implements OnInit {
 
   @Input() config = new MiaBillingPageConfig();
+  @Output() applyDiscount = new EventEmitter<string>();
 
   currentStep = 0;
   typeMonthWithHasDiscountYear = MiaBuyItem.TYPE_MONTH_WITH_HAS_DISCOUNT_YEAR;
@@ -27,7 +28,7 @@ export class MiaBillingPageComponent implements OnInit {
   }
 
   onApplyCodeDiscount() {
-
+    this.applyDiscount.emit(this.codeDiscount.value);
   }
 
   getTotal(): number {
