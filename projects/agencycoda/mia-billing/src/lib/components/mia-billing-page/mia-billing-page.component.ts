@@ -31,12 +31,17 @@ export class MiaBillingPageComponent implements OnInit {
   onApplyCodeDiscount() {
     this.processing = true;
     this.applyDiscount.emit(this.codeDiscount.value);
+    this.codeDiscount.setValue('');
   }
 
   getTotal(): number {
     let total = this.getAmount();
     for (const discount of this.config.buyItem.discounts) {
-      total -= discount.discount;
+      if(this.config.buyItem.selectedCycle == 1){
+        total -= discount.discount_year;
+      } else {
+        total -= discount.discount_month;
+      }
     }
     return total;
   }

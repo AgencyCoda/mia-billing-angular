@@ -19,5 +19,6 @@ export class MiaBuyItem {
 
 export class MiaBuyDiscount {
     title = '';
-    discount = 0;
+    discount_month = 0;
+    discount_year = 0;
 }

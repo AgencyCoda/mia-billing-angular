@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MiaBuyItem } from 'projects/agencycoda/mia-billing/src/lib/entities/mia_buy_item';
 import { MiaMethod } from 'projects/agencycoda/mia-billing/src/lib/entities/mia_method';
-import { MiaBillingPageConfig } from 'projects/agencycoda/mia-billing/src/public-api';
+import { MiaBillingPageComponent, MiaBillingPageConfig } from 'projects/agencycoda/mia-billing/src/public-api';
+import { TestService } from './services/test.service';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,34 @@ import { MiaBillingPageConfig } from 'projects/agencycoda/mia-billing/src/public
 })
 export class AppComponent implements OnInit {
 
+  @ViewChild('billingPage') billingPage!: MiaBillingPageComponent;
+
   config = new MiaBillingPageConfig();
 
-  constructor() {}
+  constructor(
+    protected testService: TestService
+  ) {}
 
   ngOnInit(): void {
     this.loadConfig();
   }
+
+  verifyDiscount(code: string) {
+
+    this.testService.verifyDiscount(code, this.config.planId).subscribe(res => {
+
+      this.config.buyItem.externalId = res.paypal_plan_id;
+      this.config.buyItem.externalIdYear = res.paypal_plan_id_year;
+      this.config.buyItem.discounts = [{ title: 'Discount code', discount_month: res.amount_discount_month, discount_year: res.amount_discount_year }];
+
+      this.billingPage.stopProcessing();
+    }, error => {
+      this.billingPage.stopProcessing();
+    });
+  }
   
   loadConfig() {
+    this.config.planId = 1;
     this.config.title = 'Example Billing';
     this.config.hasHeader = true;
     this.config.startStep = 1;
@@ -39,7 +59,7 @@ export class AppComponent implements OnInit {
       '5 newsrooms',
       '25 Users'
     ];
-    this.config.buyItem.discounts = [{ title: 'Credito', discount: 10 }];
+    //this.config.buyItem.discounts = [{ title: 'Credito', discount: 10 }];
 
     this.config.methods = [
       MiaMethod.PAYPAL_METHOD

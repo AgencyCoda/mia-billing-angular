@@ -26,7 +26,11 @@ export class MiaPaypalMethodComponent implements OnInit {
   getTotal(): number {
     let total = this.getAmount();
     for (const discount of this.config.buyItem.discounts) {
-      total -= discount.discount;
+      if(this.config.buyItem.selectedCycle == 1){
+        total -= discount.discount_year;
+      } else {
+        total -= discount.discount_month;
+      }
     }
 
     return Math.round((total + Number.EPSILON) * 100) / 100

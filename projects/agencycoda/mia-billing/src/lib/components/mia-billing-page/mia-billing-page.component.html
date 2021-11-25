@@ -24,7 +24,14 @@
             </div>
             <mat-divider></mat-divider>
             <p>Subtotal: {{ getAmount() | currency }}</p>
-            <p *ngFor="let discount of config.buyItem.discounts">{{ discount.title }} -{{ discount.discount | currency }}</p>
+            <p *ngFor="let discount of config.buyItem.discounts">
+                <ng-container *ngIf="config.buyItem.selectedCycle == 0">
+                    {{ discount.title }} - {{ discount.discount_month | currency }}
+                </ng-container>
+                <ng-container *ngIf="config.buyItem.selectedCycle == 1">
+                    {{ discount.title }} - {{ discount.discount_year | currency }}
+                </ng-container>
+            </p>
             <mat-divider></mat-divider>
 
             <div *ngIf="config.isAllowCodeDiscount" class="code_discount">

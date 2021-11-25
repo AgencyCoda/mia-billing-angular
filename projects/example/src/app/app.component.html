@@ -1,1 +1,1 @@
-<mia-billing-page [config]="config"></mia-billing-page>
+<mia-billing-page #billingPage [config]="config" (applyDiscount)="verifyDiscount($event)"></mia-billing-page>

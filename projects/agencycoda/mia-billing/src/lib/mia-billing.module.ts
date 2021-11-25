@@ -28,6 +28,7 @@ import { MiaInfoBillingComponent } from './components/mia-info-billing/mia-info-
 import { MiaSuccessBillingComponent } from './components/mia-success-billing/mia-success-billing.component';
 import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia-problem-billing.component';
 import { MiaPaypalMethodComponent } from './methods/mia-paypal-method/mia-paypal-method.component';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -66,6 +67,7 @@ import { MiaPaypalMethodComponent } from './methods/mia-paypal-method/mia-paypal
     MatExpansionModule,
     MatDividerModule,
     MatRadioModule,
+    MatInputModule,
     MatFormFieldModule,
 
     // External Libraries

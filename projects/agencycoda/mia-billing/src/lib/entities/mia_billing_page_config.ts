@@ -8,6 +8,7 @@ export class MiaBillingPageConfig {
     buyItem = new MiaBuyItem();
     startStep = 0;
     methods = new Array<MiaMethod>();
+    planId = 0;
     paypalClientId?: string;
     isAllowCodeDiscount?: boolean = false;
   }

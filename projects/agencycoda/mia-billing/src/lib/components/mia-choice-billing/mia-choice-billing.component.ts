@@ -36,6 +36,13 @@ export class MiaChoiceBillingComponent implements OnInit {
 
   loadConfig() {
     this.cycleInput = new FormControl(this.config.buyItem.selectedCycle);
-    this.cycleInput.valueChanges.subscribe(type => this.config.buyItem.selectedCycle = type);
+    this.cycleInput.valueChanges.subscribe(type => {
+      this.config.buyItem.selectedCycle = type;
+      this.processing = true;
+
+      setTimeout(() => {
+        this.processing = false;
+      }, 1000);
+    });
   }
 }
