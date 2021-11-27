@@ -11,11 +11,11 @@
 
         <div class="mia-billing-content">
             <mia-info-billing *ngIf="currentStep == 0" [item]="transaction" (continue)="onReceivedInfo($event)"></mia-info-billing>
-            <mia-choice-billing *ngIf="currentStep == 1" (back)="onBackChoice()" (success)="onSuccessPayment()" [config]="config" [processing]="processing"></mia-choice-billing>
+            <mia-choice-billing *ngIf="currentStep == 1" (back)="onBackChoice()" (success)="onSuccessPayment($event)" [config]="config" [processing]="processing"></mia-choice-billing>
             <mia-success-billing *ngIf="currentStep == 2"></mia-success-billing>
         </div>
 
-        <div class="mia-billing-lateral">
+        <div *ngIf="currentStep != 2" class="mia-billing-lateral">
             <h3>{{ config.buyItem.title }}</h3>
             <p>{{ getAmount() | currency }} + taxes</p>
             <h3>Detalles</h3>

@@ -12,7 +12,7 @@ export class MiaChoiceBillingComponent implements OnInit {
   @Input() config = new MiaBillingPageConfig();
   @Input() processing = false;
   @Output() back = new EventEmitter();
-  @Output() success = new EventEmitter();
+  @Output() success = new EventEmitter<any>();
 
   cycleInput!: FormControl;
 
@@ -26,8 +26,8 @@ export class MiaChoiceBillingComponent implements OnInit {
     return (this.config.buyItem.amount - (this.config.buyItem.amount * (this.config.buyItem.percentDiscountYear / 100))) * 12;
   }
 
-  onApproved() {
-    this.success.emit();
+  onApproved(data: any) {
+    this.success.emit(data);
   }
 
   onClickBack() {

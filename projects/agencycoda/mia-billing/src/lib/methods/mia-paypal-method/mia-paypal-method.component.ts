@@ -11,7 +11,7 @@ import { MiaBillingPageConfig } from '../../entities/mia_billing_page_config';
 export class MiaPaypalMethodComponent implements OnInit {
 
   @Input() config = new MiaBillingPageConfig();
-  @Output() success = new EventEmitter();
+  @Output() success = new EventEmitter<any>();
 
   public payPalConfig?: IPayPalConfig;
 
@@ -72,7 +72,7 @@ export class MiaPaypalMethodComponent implements OnInit {
         //this.loadingPayment = true;
           console.log('onApprove - transaction was approved, but not authorized', data, actions);
           //alert('You have successfully created subscription ' + data.subscriptionID);
-          this.success.emit();
+          this.success.emit(data);
           /*actions.order.get().then(details => {
               console.log('onApprove - you can get full order details inside onApprove: ', details);
               if(details.status == 'APPROVED'||details.status == 'COMPLETED'){

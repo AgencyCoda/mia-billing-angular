@@ -14,6 +14,7 @@ export class MiaBillingPageComponent implements OnInit {
   @Input() config = new MiaBillingPageConfig();
   @Input() processing = false;
   @Output() applyDiscount = new EventEmitter<string>();
+  @Output() successPayment = new EventEmitter<any>();
 
   currentStep = 0;
   typeMonthWithHasDiscountYear = MiaBuyItem.TYPE_MONTH_WITH_HAS_DISCOUNT_YEAR;
@@ -54,7 +55,8 @@ export class MiaBillingPageComponent implements OnInit {
     return this.config.buyItem.amount;
   }
 
-  onSuccessPayment() {
+  onSuccessPayment(data: any) {
+    this.successPayment.emit(data);
     this.currentStep = 2;
   }
 
