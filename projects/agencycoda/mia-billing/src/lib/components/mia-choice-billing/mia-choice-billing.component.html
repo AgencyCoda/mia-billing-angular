@@ -15,7 +15,7 @@
     <h3><b>Forma de pago</b></h3>
     <p>Selecciona cómo te gustaría pagar.</p>
     <mat-accordion>
-        <mat-expansion-panel *ngFor="let method of config.methods" hideToggle>
+        <mat-expansion-panel *ngFor="let method of config.methods" hideToggle [expanded]="true">
             <mat-expansion-panel-header>
                 <mat-panel-title >
                     <div class="radio-button"></div>
