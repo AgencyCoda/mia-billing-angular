@@ -1,8 +1,22 @@
 .mia-billing-layout{
   background-color: #F6F8FC;
-  padding: 1em;
   min-height: 100vh;
   box-sizing: border-box;
+}
+
+.toolbar{
+  background-color: white;
+  height: 64px;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.toolbar img{
+  height: 46px;
 }
 
 .mia-billing-container{
@@ -15,10 +29,12 @@
 
 .mia-billing-container .mia-billing-content{
   margin-right: 2em;
+  width: 100%;
 }
 
 .mia-billing-container .mia-billing-lateral{
   width: 300px;
+  min-width: 300px;
   max-width: 100%;
   background-color: white;
   border-radius: 8px;
@@ -26,13 +42,49 @@
   padding: 1em;
 }
 
+.mia-billing-container .mia-billing-lateral mat-divider{
+  margin: 1em 0;
+}
+
+.mia-billing-container .mia-billing-lateral .row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.2em 0;
+}
+
+.mia-billing-container .mia-billing-lateral .row p{
+  margin: 0;
+}
+
+.mia-billing-container .mia-billing-lateral .total{
+  margin-top: 1.5em;
+}
+
+.mia-billing-container .mia-billing-lateral .total p{
+  font-size: 1.2em;
+}
+
+.color-error{
+  color: red;
+}
+
 @media only screen and (max-width: 599px) {
   .mia-billing-container{
     flex-direction: column;
   }
   .mia-billing-container .mia-billing-content{
-    order: 2;
+    order: 1;
     margin-right: 0;
     margin-top: 2em;
+    border-radius: 0;
+  }
+
+  .mia-billing-container .mia-billing-lateral{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    order: 2;
+    border-radius: 0;
   }
 }

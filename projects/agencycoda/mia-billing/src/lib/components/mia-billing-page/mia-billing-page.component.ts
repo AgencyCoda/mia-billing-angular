@@ -57,12 +57,12 @@ export class MiaBillingPageComponent implements OnInit {
 
   onSuccessPayment(data: any) {
     this.successPayment.emit(data);
-    this.currentStep = 2;
+    this.currentStep = 3;
   }
 
   onReceivedInfo(info: any) {
     console.log(info);
-    this.currentStep = 1;
+    this.currentStep = 2;
   }
 
   onBackChoice() {

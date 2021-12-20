@@ -1,0 +1,18 @@
+<!--<button mat-button (click)="onClickBack()">Back to your details</button>-->
+
+<div class="mia-billing-discount">
+  <h3><b>Código de descuento</b></h3>
+  <p>Si tenes un código de descuento podes ingresarlo acá</p>
+
+  <div class="row">
+    <img src="https://img.icons8.com/color/48/000000/discount--v3.png"/>
+    <mat-form-field appearance="outline">
+      <mat-label>Ingresá tu código</mat-label>
+      <input matInput type="text" [disabled]="isLoading">
+      <span matSuffix *ngIf="isLoading"><mat-spinner diameter="20"></mat-spinner></span>
+    </mat-form-field>
+    <button class="btn-ok" (click)="isLoading = true;">Ok</button>
+
+    <button class="btn-skip">Omitir</button>
+  </div>
+</div>
