@@ -28,7 +28,11 @@ import { MiaInfoBillingComponent } from './components/mia-info-billing/mia-info-
 import { MiaSuccessBillingComponent } from './components/mia-success-billing/mia-success-billing.component';
 import { MiaProblemBillingComponent } from './components/mia-problem-billing/mia-problem-billing.component';
 import { MiaPaypalMethodComponent } from './methods/mia-paypal-method/mia-paypal-method.component';
+import { MiaDiscountBillingComponent } from './components/mia-discount-billing/mia-discount-billing.component';
+
+// Angular Material
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -49,7 +53,8 @@ import { MatInputModule } from '@angular/material/input';
     MiaInfoBillingComponent,
     MiaSuccessBillingComponent,
     MiaProblemBillingComponent,
-    MiaPaypalMethodComponent
+    MiaPaypalMethodComponent,
+    MiaDiscountBillingComponent
   ],
   imports: [
     // Angular Core
@@ -61,6 +66,7 @@ import { MatInputModule } from '@angular/material/input';
     // Mia Library
     MiaCoreModule,
     MiaFormModule,
+    MatProgressSpinnerModule,
 
     // Angular Material
     MatStepperModule,

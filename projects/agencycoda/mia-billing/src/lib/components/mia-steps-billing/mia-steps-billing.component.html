@@ -1,7 +1,8 @@
 <div class="stepper container">
     <mat-horizontal-stepper #stepper labelPosition="bottom" (selectionChange)="onChangeStep($event)">
-        <mat-step [editable]="false" [completed]="false" [state]="'number'"> <ng-template matStepLabel >Enter your details</ng-template> </mat-step>
-        <mat-step [editable]="false" [completed]="false" [state]="'number'"> <ng-template matStepLabel >Select a choise</ng-template> </mat-step>
-        <mat-step [editable]="false" [completed]="false" [state]="'number'"> <ng-template matStepLabel >Status your payment</ng-template> </mat-step>
+        <mat-step [editable]="false" [completed]="false" [state]="'number'"> <ng-template matStepLabel>Enter your details</ng-template> </mat-step>
+        <mat-step [editable]="false" [completed]="false" [state]="'number'"> <ng-template matStepLabel>Discount code</ng-template> </mat-step>
+        <mat-step [editable]="false" [completed]="false" [state]="'number'"> <ng-template matStepLabel>Select a choise</ng-template> </mat-step>
+        <mat-step [editable]="false" [completed]="false" [state]="'number'"> <ng-template matStepLabel>Status your payment</ng-template> </mat-step>
     </mat-horizontal-stepper>
 </div>

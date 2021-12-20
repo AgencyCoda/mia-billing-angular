@@ -1,6 +1,9 @@
 <div class="mia-billing-layout">
-    <div *ngIf="config.logoImage && config.logoImage != ''" class="toolbar">
+    <!-- <div *ngIf="config.logoImage && config.logoImage != ''" class="toolbar">
         <img [src]="config.logoImage" [alt]="config.title" />
+    </div> -->
+    <div class="toolbar">
+        <img [src]="config.logoImage" [alt]="config.title" onerror="this.src='/assets/image-not-found.svg';" />
     </div>
 
     <!--<mia-header-billing *ngIf="config.hasHeader" [title]="config.title" [logo]="config.logoImage"></mia-header-billing>
@@ -11,11 +14,13 @@
 
         <div class="mia-billing-content">
             <mia-info-billing *ngIf="currentStep == 0" [item]="transaction" (continue)="onReceivedInfo($event)"></mia-info-billing>
-            <mia-choice-billing *ngIf="currentStep == 1" (back)="onBackChoice()" (success)="onSuccessPayment($event)" [config]="config" [processing]="processing"></mia-choice-billing>
-            <mia-success-billing *ngIf="currentStep == 2"></mia-success-billing>
+            <mia-discount-billing *ngIf="currentStep == 1"></mia-discount-billing>
+            <mia-choice-billing *ngIf="currentStep == 2" (back)="onBackChoice()" (success)="onSuccessPayment($event)" [config]="config" [processing]="processing"></mia-choice-billing>
+            <mia-success-billing *ngIf="currentStep == 3"></mia-success-billing>
         </div>
 
         <div *ngIf="currentStep != 2" class="mia-billing-lateral">
+          <h3><b>Resumen de compra</b></h3>
             <h3>{{ config.buyItem.title }}</h3>
             <p>{{ getAmount() | currency }} + taxes</p>
             <h3>Detalles</h3>
@@ -23,36 +28,47 @@
                 <p>{{ detail }}</p>
             </div>
             <mat-divider></mat-divider>
-            <p>Subtotal: {{ getAmount() | currency }}</p>
-            <p *ngFor="let discount of config.buyItem.discounts">
-                <ng-container *ngIf="config.buyItem.selectedCycle == 0">
-                    {{ discount.title }} - {{ discount.discount_month | currency }}
-                </ng-container>
-                <ng-container *ngIf="config.buyItem.selectedCycle == 1">
-                    {{ discount.title }} - {{ discount.discount_year | currency }}
-                </ng-container>
-            </p>
-            <mat-divider></mat-divider>
+            <div class="row">
+              <p>Subtotal: {{ getAmount() | currency }}</p>
+              <p *ngFor="let discount of config.buyItem.discounts">
+                  <ng-container *ngIf="config.buyItem.selectedCycle == 0">
+                      {{ discount.title }} - {{ discount.discount_month | currency }}
+                  </ng-container>
+                  <ng-container *ngIf="config.buyItem.selectedCycle == 1">
+                      {{ discount.title }} - {{ discount.discount_year | currency }}
+                  </ng-container>
+              </p>
+            </div>
 
-            <div *ngIf="config.isAllowCodeDiscount" class="code_discount">
+            <!-- <div *ngIf="config.isAllowCodeDiscount" class="code_discount">
                 <mat-form-field>
                     <mat-label>Aplicar descuento</mat-label>
                     <input matInput type="email" [formControl]="codeDiscount" placeholder="Codigo de descuento" />
                 </mat-form-field>
                 <button mat-button (click)="onApplyCodeDiscount()">Aplicar</button>
             </div>
-            <mat-divider *ngIf="config.isAllowCodeDiscount"></mat-divider>
+            <mat-divider *ngIf="config.isAllowCodeDiscount"></mat-divider> -->
+            <div class="row">
+              <p class="color-error">Descuentos</p>
+              <p class="color-error">{{ -169 | currency }}</p>
+            </div>
 
+            <div class="row">
+              <p>Envío</p>
+              <p>{{ 69 | currency }}</p>
+            </div>
 
-            <p>Total:</p>
-            <p>{{ getTotal() | currency }}</p>
+            <div class="row total">
+              <p><b>Total:</b></p>
+              <p><b>{{ getTotal() | currency }}</b></p>
+            </div>
         </div>
 
-        
-        
+
+
         <!--<app-step-info *ngIf="currentStep == 0" (continue)="onNextStep()"></app-step-info>
-        <div *ngIf="currentStep == 1" style="color: white"><p>loading...</p></div>
-        <div *ngIf="currentStep == 2" style="color: white">
+        <div *ngIf="currentStep == 2" style="color: white"><p>loading...</p></div>
+        <div *ngIf="currentStep == 3" style="color: white">
             <div *ngIf="currentTransaction.status == 1">Your payment has been approved.</div>
             <div *ngIf="currentTransaction.status == 2">We were unable to process your payment, please try again.</div>
         </div>-->
